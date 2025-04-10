@@ -1014,7 +1014,7 @@ class File extends Model
     /**
      * Returns the name of the storage disk the file is stored on
      */
-    protected function getDiskName(): string
+    public function getDiskName(): string
     {
         return 'local';
     }
