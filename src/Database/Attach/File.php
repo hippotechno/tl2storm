@@ -572,7 +572,8 @@ class File extends Model
         }
 
         $metadata = $this->metadata ?? [];
-        $this->metadata = Arr::set($metadata, 'internal.dimensions', getimagesize($this->getLocalPath()));
+        Arr::set($metadata, 'internal.dimensions', getimagesize($this->getLocalPath()));
+        $this->metadata = $metadata;
         $this->save();
 
         return $this->metadata['internal']['dimensions'];
