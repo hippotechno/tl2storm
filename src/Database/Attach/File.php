@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Winter\Storm\Database\Model;
 use Winter\Storm\Exception\ApplicationException;
 use Winter\Storm\Network\Http;
+use Winter\Storm\Support\Arr;
 use Winter\Storm\Support\Facades\File as FileHelper;
 use Winter\Storm\Support\Svg;
 
@@ -570,7 +571,7 @@ class File extends Model
             return $this->metadata['internal']['dimensions'];
         }
 
-        $this->metadata['internal']['dimensions'] = getimagesize($this->getLocalPath());
+        $this->metadata = Arr::set($this->metadata ?? [], 'internal.dimensions', getimagesize($this->getLocalPath());
         $this->save();
 
         return $this->metadata['internal']['dimensions'];
