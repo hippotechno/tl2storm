@@ -459,7 +459,6 @@ class Repository extends BaseRepository implements ArrayAccess, RepositoryContra
         return $items;
     }
 
-
     /**
      * Determine if the given configuration option exists.
      *
