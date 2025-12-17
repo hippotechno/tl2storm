@@ -441,7 +441,7 @@ class FormBuilder
         $html = [];
 
         foreach ($list as $value => $display) {
-            $html[] = $this->getSelectOption($display, $value, $selected);
+            $html[] = $this->getSelectOption($display ?? $value, $value, $selected);
         }
 
         // Once we have all of this HTML, we can join this into a single element after
