@@ -1,7 +1,7 @@
 {
-    "name": "winter/storm",
-    "description": "Winter CMS Storm Library",
-    "homepage": "https://wintercms.com",
+    "name": "hippo/storm",
+    "description": "A forked and updated version of the Winter CMS Storm Library by Hippo Technology",
+    "homepage": "https://tulutala.com",
     "keywords": ["winter", "cms", "storm"],
     "license": "MIT",
     "authors": [
