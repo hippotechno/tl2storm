@@ -116,7 +116,12 @@ trait AttachOneOrMany
      */
     public function addEagerConstraints(array $models)
     {
-        parent::addEagerConstraints($models);
+        $this->getRelationQuery()->whereIn(
+            $this->foreignKey,
+            array_map('strval', $this->getKeys($models, $this->localKey))
+        );
+
+        $this->getRelationQuery()->where($this->morphType, $this->morphClass);
 
         $this->query->where('field', $this->fieldName);
     }
