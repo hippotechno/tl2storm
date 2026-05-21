@@ -540,10 +540,16 @@ class Resizer
                 $this->retainImageTransparency($img);
                 break;
             case 'image/webp':
+                if (!function_exists('imagecreatefromwebp')) {
+                    throw new Exception('GD WebP support is not enabled in the current PHP runtime.');
+                }
                 $img = @imagecreatefromwebp($filePath);
                 $this->retainImageTransparency($img);
                 break;
             case 'image/avif':
+                if (!function_exists('imagecreatefromavif')) {
+                    throw new Exception('GD AVIF support is not enabled in the current PHP runtime.');
+                }
                 $img = @imagecreatefromavif($filePath);
                 $this->retainImageTransparency($img);
                 break;

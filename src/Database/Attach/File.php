@@ -701,7 +701,7 @@ class File extends Model
                     ->resize($width, $height, $options)
                     ->save($resizedImage)
                 ;
-            } catch (Exception $ex) {
+            } catch (\Throwable $ex) {
                 Log::error($ex);
                 BrokenImage::copyTo($resizedImage);
             }
